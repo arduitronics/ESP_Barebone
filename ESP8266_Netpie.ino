@@ -1,18 +1,18 @@
 
 
-#include <ArduinoJson.h> // ** ใช้กับ version 5.13 เท่านั้น  
+#include <ArduinoJson.h> // **
 
 #include <ESP8266WiFi.h>
 #include <MicroGear.h>
         
 
 //-------------------------------------------------------
-const char* ssid     = "xxxxxxxxx";     
-const char* password = "xxxxxxxxx";     
+const char* ssid     = "GT TECH_2.4G";     
+const char* password = "48044993255";     
 
-#define APPID   "your APPID"
-#define KEY     "your key"         // key
-#define SECRET  "Your secret"
+#define APPID   "ESPBarebone"
+#define KEY     "nMlUTzXoV8hGBDt"         // key
+#define SECRET  "okbLjurpmdFMTRm6WJiYd8Zz7"
 #define ALIAS   "esp8266BareboneNetpie"
 
 #define FEEDID   "BareboneESP"           // ***** FeedID
@@ -35,7 +35,7 @@ void onConnected(char *attribute, uint8_t* msg, unsigned int msglen) {
 
 void setup() {
     Serial.begin(115200);
-
+    pinMode(4, OUTPUT);
     if (WiFi.begin(ssid, password)) {
         while (WiFi.status() != WL_CONNECTED) {
             delay(1000);
@@ -54,12 +54,17 @@ void setup() {
 void loop() {
     if (microgear.connected()) {
         microgear.loop();
-
-        if(millis() - lastDHTRead > 2000){
+        
+        if(millis() - lastDHTRead > 10000){
           humid = 40 -4;     // อ่านค่าความชื้น
           temp  = 42 -4;  // อ่านค่าอุณหภูมิ
           lastDHTRead = millis();
-          
+          digitalWrite(4, HIGH);
+          delay(4000);  
+          int sensorValue = analogRead(A0);
+          Serial.print("Analog Read: ");Serial.println(sensorValue);
+          delay(1000);        // delay in between reads for stability
+          digitalWrite(4, LOW);
           Serial.print("Humid: "); Serial.print(humid); Serial.print(" %, ");
           Serial.print("Temp: "); Serial.print(temp); Serial.println(" C ");
     
