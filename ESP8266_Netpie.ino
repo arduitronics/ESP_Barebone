@@ -7,8 +7,8 @@
         
 
 //-------------------------------------------------------
-const char* ssid     = "GT TECH_2.4G";     
-const char* password = "48044993255";     
+const char* ssid     = "xxxxxxxxx";     
+const char* password = "xxxxxxxxx";     
 
 #define APPID   "ESPBarebone"
 #define KEY     "nMlUTzXoV8hGBDt"         // key
