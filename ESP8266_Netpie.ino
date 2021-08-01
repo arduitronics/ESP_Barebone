@@ -1,6 +1,6 @@
 
 
-#include <ArduinoJson.h> // **
+#include <ArduinoJson.h> // ** ใช้กับ version 5.13 เท่านั้น  
 
 #include <ESP8266WiFi.h>
 #include <MicroGear.h>
