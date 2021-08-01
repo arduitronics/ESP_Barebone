@@ -10,9 +10,9 @@
 const char* ssid     = "xxxxxxxxx";     
 const char* password = "xxxxxxxxx";     
 
-#define APPID   "ESPBarebone"
-#define KEY     "nMlUTzXoV8hGBDt"         // key
-#define SECRET  "okbLjurpmdFMTRm6WJiYd8Zz7"
+#define APPID   "your APPID"
+#define KEY     "your key"         // key
+#define SECRET  "Your secret"
 #define ALIAS   "esp8266BareboneNetpie"
 
 #define FEEDID   "BareboneESP"           // ***** FeedID
